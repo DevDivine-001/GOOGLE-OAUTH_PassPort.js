@@ -21,8 +21,16 @@ app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 100,
 }))
 
+app.use(passport.initialize())
+app.use(passport.session())
 
 
+app.use(cors({
+    origin: "http://localhost:3000/",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+}))
 
-
+const port = process.env.PORT || port
+app.listen(port, () => console.log(`Listenting on port ${port}`))
 console.log("Hello word First time i code lab")
