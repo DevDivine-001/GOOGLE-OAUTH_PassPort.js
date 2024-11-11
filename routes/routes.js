@@ -21,12 +21,12 @@ router.get("/login/failed", (req, res) => {
         message: "Log in failure",
     })
 })
-// router.get("/google/callback",
-//     passport.authenticate("google", {
-//         successRedirect: process.env.CLIENT_URL,
-//         failureRedirect: "/login/failed"
-//     })
-// )
+router.get("/google/callback",
+    passport.authenticate("google", {
+        successRedirect: process.env.CLIENT_URL,
+        failureRedirect: "/login/failed"
+    })
+)
 
 // router.get("google", passport.authenticate("google", ["profile", "email"]))
 
