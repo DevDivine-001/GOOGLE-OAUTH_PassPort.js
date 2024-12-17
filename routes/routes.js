@@ -35,4 +35,11 @@ router.get("/logout", (req, res) => {
     res.redirect(process.env.CLIENT_URL)
 })
 
+router.get('/auth/google/callback',
+    passport.authenticate('google', { failureRedirect: '/' }),
+    (req, res) => {
+        res.redirect('/');
+    }
+);
+
 export default router
